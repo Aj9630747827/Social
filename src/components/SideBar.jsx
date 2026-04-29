@@ -2,12 +2,29 @@ import { useState } from "react";
 
 function SideBar() {
   const [activeBtn, setActiveBtn] = useState("home");
+  const [showMenu, setShowMenu] = useState(false);
 
   return (
     <>
+      {/* Toggle button only for small screens */}
+      <div className="d-md-none p-2 bg-dark">
+        <button
+          className="btn btn-primary"
+          onClick={() => setShowMenu(!showMenu)}
+        >
+          ☰ Menu
+        </button>
+      </div>
+
+      {/* Sidebar */}
       <div
-        className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark min-vh-100"
-        style={{ width: "310px", maxWidth: "100%" }}
+        className={`bg-dark text-white p-3 min-vh-100 ${
+          showMenu ? "d-block" : "d-none"
+        } d-md-flex flex-column flex-shrink-0`}
+        style={{
+          width: "310px",
+          maxWidth: "100%",
+        }}
       >
         <a
           href="/"
@@ -21,9 +38,11 @@ function SideBar() {
         <ul className="nav nav-pills flex-column mb-auto">
           <li className="nav-item mb-2">
             <button
-              href="#"
-              onClick={() => setActiveBtn("home")}
-              className={`nav-link text-white sidebar_btn ${
+              onClick={() => {
+                setActiveBtn("home");
+                setShowMenu(false);
+              }}
+              className={`nav-link text-white sidebar_btn w-100 text-start ${
                 activeBtn === "home" ? "active_btn" : ""
               }`}
             >
@@ -33,9 +52,11 @@ function SideBar() {
 
           <li className="mb-2">
             <button
-              href="#"
-              onClick={() => setActiveBtn("createPost")}
-              className={`nav-link text-white sidebar_btn ${
+              onClick={() => {
+                setActiveBtn("createPost");
+                setShowMenu(false);
+              }}
+              className={`nav-link text-white sidebar_btn w-100 text-start ${
                 activeBtn === "createPost" ? "active_btn" : ""
               }`}
             >
@@ -45,9 +66,11 @@ function SideBar() {
 
           <li className="mb-2">
             <button
-              href="#"
-              onClick={() => setActiveBtn("posts")}
-              className={`nav-link text-white sidebar_btn ${
+              onClick={() => {
+                setActiveBtn("posts");
+                setShowMenu(false);
+              }}
+              className={`nav-link text-white sidebar_btn w-100 text-start ${
                 activeBtn === "posts" ? "active_btn" : ""
               }`}
             >
