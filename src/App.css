@@ -1,0 +1,9 @@
+.sidebar_btn{
+    width: 100%;
+}
+.sidebar_btn:hover{
+    background-color:#0d6efd;
+}
+.active_btn{
+    background-color:#0d6efd;
+}
