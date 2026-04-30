@@ -1,5 +1,7 @@
 import { useState } from "react";
 import PostForm from "./PostForm";
+import Postlist from "./Postlist";
+import { PostsContext } from "../store/postsContext";
 
 function SideBar() {
   const [activeBtn, setActiveBtn] = useState("home");
@@ -83,9 +85,18 @@ function SideBar() {
         </div>
 
         {/* Right Side Content */}
+
         {activeBtn == "createPost" ? (
           <div className="flex-grow-1 p-3">
             <PostForm />
+          </div>
+        ) : (
+          <></>
+        )}
+        {activeBtn == "posts" ? (
+          <div className="flex-grow-1 p-3">
+            {" "}
+            <Postlist />
           </div>
         ) : (
           <></>

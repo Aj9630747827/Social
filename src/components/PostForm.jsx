@@ -1,36 +1,45 @@
+import { useContext, useState } from "react";
 import { IoIosSend } from "react-icons/io";
+import { PostsContext } from "../store/postsContext";
 
 function PostForm() {
-  return (
-    <>
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-9">
-            <div class="input-group mb-3 w-100">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Write Your Post"
-                aria-label="Post"
-                aria-describedby="button-addon2"
-              />
-            </div>
-          </div>
+  const { handleAddPost } = useContext(PostsContext);
+  const [post, setPost] = useState("");
 
-          <div class="col-2">
-            <div className="d-grid d-md-flex justify-content-md-end">
-              <button
-                className="btn btn-outline-success w-100 w-md-auto d-flex align-items-center justify-content-center gap-2"
-                type="button"
-              >
-                <span className="d-none d-md-inline">Post</span>
-                <IoIosSend />
-              </button>
-            </div>
-          </div>
+  const handleSubmit = () => {
+    if (!post.trim()) return;
+    handleAddPost(post);
+    setPost("");
+  };
+
+  return (
+    <div className="container">
+      <div className="row g-2">
+        {/* Input */}
+        <div className="col-12 col-md-10">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Write Your Post"
+            value={post}
+            onChange={(e) => setPost(e.target.value)}
+          />
+        </div>
+
+        {/* Button */}
+        <div className="col-12 col-md-2">
+          <button
+            className="btn btn-outline-success w-100 d-flex align-items-center justify-content-center gap-2"
+            type="button"
+            onClick={handleSubmit}
+          >
+            <span className="d-none d-md-inline">Post</span>
+            <IoIosSend />
+          </button>
         </div>
       </div>
-    </>
+    </div>
   );
 }
+
 export default PostForm;
