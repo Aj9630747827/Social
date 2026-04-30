@@ -1,6 +1,4 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import Header from "./components/Header";
 import SideBar from "./components/SideBar";
@@ -9,7 +7,7 @@ import { PostsContext } from "./store/postsContext";
 function App() {
   const [posts, setPosts] = useState([]);
   function handleAddPost(post) {
-    if (post.length === 0) return;
+    if (!post.trim()) return;
     setPosts((currPost) => {
       const newList = [...currPost, post];
       return newList;

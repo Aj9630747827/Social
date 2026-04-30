@@ -7,13 +7,13 @@ function Postlist() {
   return (
     <>
       {posts.length === 0 ? (
-        <p class="fs-1 text-center">No Posts here yet!</p>
+        <p className="fs-1 text-center">No Posts here yet!</p>
       ) : (
         <>
-          <p class="fs-1 text-center">Your Posts</p>
+          <p className="fs-1 text-center">Your Posts</p>
           <ul>
             {posts.map((post, index) => (
-              <li>
+              <li key={index}>
                 <Post content={post} index={index} />
               </li>
             ))}
