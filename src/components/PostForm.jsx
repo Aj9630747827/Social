@@ -8,7 +8,9 @@ function PostForm() {
 
   const handleSubmit = () => {
     if (!post.trim()) return;
+
     handleAddPost(post);
+
     setPost("");
   };
 
