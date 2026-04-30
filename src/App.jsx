@@ -7,11 +7,7 @@ import SideBar from "./components/SideBar";
 import { PostsContext } from "./store/postsContext";
 
 function App() {
-  const [posts, setPosts] = useState([
-    "Hello My Fist Post",
-    "Hello My Second Post",
-    "Hello My Third Post",
-  ]);
+  const [posts, setPosts] = useState([]);
   function handleAddPost(post) {
     if (post.length === 0) return;
     setPosts((currPost) => {
