@@ -4,32 +4,46 @@ import { PostsContext } from "../store/postsContext";
 
 function PostForm() {
   const { handleAddPost } = useContext(PostsContext);
-  const [post, setPost] = useState("");
+
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
 
   const handleSubmit = () => {
-    if (!post.trim()) return;
+    if (!title.trim() || !content.trim()) return;
 
-    handleAddPost(post);
+    handleAddPost({ title, content });
 
-    setPost("");
+    setTitle("");
+    setContent("");
   };
 
   return (
     <div className="container">
-      <div className="row g-2">
-        {/* Input */}
-        <div className="col-12 col-md-10">
+      <div className="row g-3">
+        {/* Title Input */}
+        <div className="col-12">
           <input
             type="text"
             className="form-control"
-            placeholder="Write Your Post"
-            value={post}
-            onChange={(e) => setPost(e.target.value)}
+            placeholder="Enter Title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
           />
         </div>
 
+        {/* Textarea */}
+        <div className="col-12">
+          <textarea
+            className="form-control"
+            rows="4"
+            placeholder="Write your post..."
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+          ></textarea>
+        </div>
+
         {/* Button */}
-        <div className="col-12 col-md-2">
+        <div className="col-12 col-md-2 ms-auto">
           <button
             className="btn btn-outline-success w-100 d-flex align-items-center justify-content-center gap-2"
             type="button"

@@ -2,13 +2,13 @@ import { useContext } from "react";
 import { MdDelete } from "react-icons/md";
 import { PostsContext } from "../store/postsContext";
 
-function Post({ content, index }) {
+function Post({ title, content, index }) {
   const { deletePost } = useContext(PostsContext);
   return (
     <div className="card mb-3 shadow-sm">
       <div className="card-body">
         {/* Title */}
-        <h5 className="card-title text-break">Post</h5>
+        <h5 className="card-title text-break">{title}</h5>
 
         {/* Content */}
         <p className="card-text text-break">{content}</p>

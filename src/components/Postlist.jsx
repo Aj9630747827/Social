@@ -14,7 +14,7 @@ function Postlist() {
           <ul>
             {posts.map((post, index) => (
               <li key={index}>
-                <Post content={post} index={index} />
+                <Post title={post.title} content={post.post} index={index} />
               </li>
             ))}
           </ul>
