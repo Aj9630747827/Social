@@ -6,10 +6,10 @@ import Main from "./components/Main";
 
 function App() {
   const [posts, setPosts] = useState([]);
-  function handleAddPost(post) {
-    if (!post.trim()) return;
+  function handleAddPost({ title, content }) {
+    if (!content.trim() || !title.trim()) return;
     setPosts((currPost) => {
-      const newList = [...currPost, post];
+      const newList = [...currPost, { title: title, post: content }];
       return newList;
     });
   }
