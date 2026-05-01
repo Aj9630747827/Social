@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
-import SideBar from "./components/SideBar";
 import { PostsContext } from "./store/postsContext";
+import Main from "./components/Main";
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -31,7 +31,7 @@ function App() {
         }}
       >
         <Header />
-        <SideBar />
+        <Main />
       </PostsContext.Provider>
     </>
   );
