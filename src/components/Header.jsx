@@ -2,7 +2,7 @@ import logo from "../assets/logo.png";
 function Header() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+      <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
             <img src={logo} alt="Social" width="30" height="24" />

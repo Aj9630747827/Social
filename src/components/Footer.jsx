@@ -2,7 +2,7 @@ import { FaInstagram, FaFacebook } from "react-icons/fa";
 
 function Footer() {
   return (
-    <footer className="border-top py-3 mt-auto bg-light w-100">
+    <footer className="border-top py-3 mt-auto bg-light w-100 sticky-footer">
       <div className="container-fluid">
         <div className="row align-items-center text-center text-md-start">
           {/* Left */}
