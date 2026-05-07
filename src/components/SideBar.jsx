@@ -7,16 +7,18 @@ function Sidebar({ showMenu, setShowMenu }) {
     <>
       {/* Sidebar */}
       <div
-        className={`bg-dark text-white p-3 min-vh-100 ${
+        className={`bg-dark text-white p-3 ${
           showMenu ? "d-block" : "d-none"
-        } d-md-flex flex-column flex-shrink-0`}
+        } d-md-flex flex-column flex-shrink-0 full-height`}
         style={{
           width: "310px",
           maxWidth: "100%",
           position: window.innerWidth < 768 ? "fixed" : "static", // ✅ key line
           top: 0,
           left: 0,
-          zIndex: 999,
+          zIndex: 1999,
+          height: "110vh",
+          marginBottom: "0",
         }}
       >
         <a

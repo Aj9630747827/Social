@@ -31,30 +31,31 @@ function Main() {
         <div className="d-flex">
           <Sidebar showMenu={showMenu} setShowMenu={setShowMenu} />
           {/* Right Side Content */}
-
-          {activeBtn == "createPost" ? (
-            <div className="flex-grow-1 p-3">
-              <PostForm />
-            </div>
-          ) : (
-            <></>
-          )}
-          {activeBtn == "posts" ? (
-            <div className="flex-grow-1 p-3">
-              {" "}
-              <Postlist />
-            </div>
-          ) : (
-            <></>
-          )}
-          {activeBtn == "home" ? (
-            <div className="flex-grow-1 p-3">
-              {" "}
-              <Home />
-            </div>
-          ) : (
-            <></>
-          )}
+          <div className="w-100">
+            {activeBtn == "createPost" ? (
+              <div className="flex-grow-1 p-3 full-height">
+                <PostForm />
+              </div>
+            ) : (
+              <></>
+            )}
+            {activeBtn == "posts" ? (
+              <div className="flex-grow-1 p-3 full-height">
+                {" "}
+                <Postlist />
+              </div>
+            ) : (
+              <></>
+            )}
+            {activeBtn == "home" ? (
+              <div className="flex-grow-1 p-3 full-height">
+                {" "}
+                <Home />
+              </div>
+            ) : (
+              <></>
+            )}
+          </div>
         </div>
       </MenuContext.Provider>
     </>
